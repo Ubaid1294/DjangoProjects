@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Authentication</title>
+    <style>
+        .blink-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            animation: blink 2s infinite;
+            transition: background-color 0.5s ease:
+        }
+        .login-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-button:hover {
+            background-color: #218838;
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 1;
+                background-color: #007bff;
+            }
+            50% {
+                opacity: 0;
+                background-color: #dc3545;
+            }
+            100% {
+                opacity: 1;
+                background-color: #007bff;
+            }
+        }
+    </style>
+</head>
+<body>
+
+{% block content %}
+
+<h1>Welcome to the Django</h1>
+<a href="{% url 'register' %}" class="blink-button">Register Here</a>
+<p>If already registered please login</p>
+{% endblock %}
+</body>
+</html>
