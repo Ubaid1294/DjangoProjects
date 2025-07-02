@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Blog</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 40px;
+        }
+
+        .post {
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 30px;
+            margin-bottom: 30px;
+        }
+
+        .post img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .post h3 {
+            margin: 10px 0 5px;
+            color: #333;
+        }
+
+        .post h3:hover {
+            color: #007bff;
+        }
+
+        .post a {
+            text-decoration: none;
+        }
+
+        .post-date {
+            font-size: 13px;
+            color: #888;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>My Blog</h1>
+
+    <h2>Latest Posts</h2>
+    <hr/>
+
+    {% for post in post.all %}
+    <div class="post">
+        <a href="{% url 'detail' post.id %}">
+            <h3>{{ post.title }}</h3>
+        </a>
+        <div class="post-date">{{ post.pub_date }}</div>
+        <img src="{{ post.image.url }}" alt="{{ post.title }}">
+        <p>{{ post.summary }}</p>
+    </div>
+    {% endfor %}
+
+</div>
+
+</body>
+</html>
