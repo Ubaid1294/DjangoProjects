@@ -26,5 +26,7 @@ print("Size in bytes: ", Resized.size)
 Horizontal_Vertical = cv2.flip(Resized, -1)
 cv2.imshow("Horizontal and Vertical flip", Horizontal_Vertical)
 
+print("Size in bytes: ", Horizontal_Vertical.size)
+
 cv2.waitKey(0)
 cv2.destroyAllWindows()
